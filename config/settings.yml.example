@@ -1,0 +1,14 @@
+development:
+  github:
+    key: your-dev-api-key
+    secret: your-dev-api-secret
+
+test:
+  github:
+    key: your-test-api-key
+    secret: your-test-api-secret
+
+production:
+  github:
+    key: your-production-api-key
+    secret: your-production-api-secret
