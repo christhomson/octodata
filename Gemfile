@@ -11,8 +11,11 @@ gem 'jquery-rails'
 
 gem 'turbolinks'
 
-gem 'omniauth'
-gem 'omniauth-github'
+gem 'omniauth', '~> 1.2.1'
+gem 'omniauth-github', '~> 1.1.1'
+
+gem 'resque', '~> 1.25.1'
+gem 'resque-scheduler', '~> 2.5.5'
 
 group :development do
   gem 'pry'

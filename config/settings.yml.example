@@ -2,13 +2,19 @@ development:
   github:
     key: your-dev-api-key
     secret: your-dev-api-secret
+  redis:
+    url: localhost:6379
 
 test:
   github:
     key: your-test-api-key
     secret: your-test-api-secret
+  redis:
+    url: localhost:6379
 
 production:
   github:
     key: your-production-api-key
     secret: your-production-api-secret
+  redis:
+    url: localhost:6379
