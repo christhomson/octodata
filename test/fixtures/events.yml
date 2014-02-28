@@ -1,0 +1,5 @@
+joe_push:
+  event_type: PushEvent
+  repository: rails
+  remote_id: 42
+  distinct_size: 8

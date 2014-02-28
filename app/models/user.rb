@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :imports
+  has_many :events
 
   validates :username, presence: true
   validates :auth_token, presence: true
