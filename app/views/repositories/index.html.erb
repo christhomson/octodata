@@ -2,6 +2,6 @@
 
 <ul>
   <% @repositories.each do |repository| %>
-    <li><%= repository.display_name %></li>
+    <li><%= link_to repository.display_name, repository.github_url %></li>
   <% end %>
 </ul>

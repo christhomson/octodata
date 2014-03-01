@@ -39,4 +39,8 @@ class RepositoryTest < ActiveSupport::TestCase
     assert_operator @repo.users.size, :>, 0
     assert_equal @repo.users, @repo.users.uniq
   end
+
+  test "#github_url should return a GitHub URL" do
+    assert_match /^https?:\/\/(www\.)?github.com\/(.+)/, @repo.github_url
+  end
 end

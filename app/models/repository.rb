@@ -10,4 +10,8 @@ class Repository < ActiveRecord::Base
   def display_name
     "#{owner}/#{name}"
   end
+
+  def github_url
+    "https://github.com/#{display_name}"
+  end
 end
