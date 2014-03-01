@@ -3,4 +3,6 @@ class Import < ActiveRecord::Base
   has_many :events
 
   validates :user_id, presence: true
+
+  PAGE_LIMIT = 10 # imposed by GitHub
 end

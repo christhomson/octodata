@@ -3,19 +3,20 @@ class Event < ActiveRecord::Base
   belongs_to :import
   belongs_to :repository
 
-  validates :event_type, presence: true
-  validates :remote_id, presence: true
+  validates :event_type,    presence: true
+  validates :remote_id,     presence: true, uniqueness: true
   validates :repository_id, presence: true
-  validates :user_id, presence: true
+  validates :user_id,       presence: true
+  validates :import_id,     presence: true
 
-  scope :follows, -> { where type: 'FollowEvent' }
-  scope :gists, -> { where type: 'GistEvent' }
-  scope :issue_comments, -> { where type: 'IssueCommentEvent' }
-  scope :issues, -> { where type: 'IssuesEvent' }
-  scope :pull_requests, -> { where type: 'PullRequestEvent' }
-  scope :pull_request_comments, -> { where type: 'PullRequestReviewEvent' }
-  scope :pushes, -> { where type: 'PushEvent' }
-  scope :watches, -> { where type: 'WatchEvent' }
+  scope :follows,               -> { where event_type: 'FollowEvent' }
+  scope :gists,                 -> { where event_type: 'GistEvent' }
+  scope :issue_comments,        -> { where event_type: 'IssueCommentEvent' }
+  scope :issues,                -> { where event_type: 'IssuesEvent' }
+  scope :pull_requests,         -> { where event_type: 'PullRequestEvent' }
+  scope :pull_request_comments, -> { where event_type: 'PullRequestReviewEvent' }
+  scope :pushes,                -> { where event_type: 'PushEvent' }
+  scope :watches,               -> { where event_type: 'WatchEvent' }
   
 
   def self.from_hash(user, github_hash)
