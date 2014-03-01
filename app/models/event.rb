@@ -38,4 +38,13 @@ class Event < ActiveRecord::Base
       end
     end
   end
+
+  def description
+    case event_type
+    when 'FollowEvent' then "followed #{repository.display_name}"
+    when 'PushEvent' then "pushed #{distinct_size} commits to #{repository.display_name}"
+    else
+      "did something to #{repository.display_name}"
+    end
+  end
 end

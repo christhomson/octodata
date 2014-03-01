@@ -1,7 +1,0 @@
-<h1><%= current_user.username %>'s repositories</h1>
-
-<ul>
-  <% @repositories.each do |repository| %>
-    <li><%= link_to repository.display_name, repository.github_url %></li>
-  <% end %>
-</ul>

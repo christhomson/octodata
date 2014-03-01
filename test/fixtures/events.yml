@@ -1,5 +1,6 @@
 joe_follow:
   event_type: FollowEvent
+  repository: rails
   remote_id: 24
   user: joe
   occurred_at: <%= 1.hour.ago %>
@@ -7,6 +8,7 @@ joe_follow:
 
 joe_gist:
   event_type: GistEvent
+  repository: rails
   remote_id: 123
   user: joe
   occurred_at: <%= 2.hours.ago %>
@@ -14,6 +16,7 @@ joe_gist:
 
 joe_issue_comment:
   event_type: IssueCommentEvent
+  repository: rails
   remote_id: 456
   user: joe
   occurred_at: <%= 1.week.ago %>
@@ -21,6 +24,7 @@ joe_issue_comment:
 
 joe_issue:
   event_type: IssuesEvent
+  repository: rails
   remote_id: 2588
   user: joe
   occurred_at: <%= 1.year.ago %>
@@ -28,6 +32,7 @@ joe_issue:
 
 joe_pull_request:
   event_type: PullRequestEvent
+  repository: rails
   remote_id: 9823948
   user: joe
   occurred_at: <%= 5.seconds.ago %>
@@ -36,6 +41,7 @@ joe_pull_request:
 
 joe_pull_request_comment:
   event_type: PullRequestCommentEvent
+  repository: rails
   remote_id: 23423479
   user: joe
   occurred_at: <%= 10.minutes.ago %>

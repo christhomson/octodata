@@ -3,5 +3,5 @@ Octodata::Application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
   resources :repositories
 
-  root to: 'repositories#index'
+  root to: 'activity#index'
 end
