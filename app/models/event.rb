@@ -4,10 +4,12 @@ class Event < ActiveRecord::Base
   belongs_to :repository
 
   validates :event_type,    presence: true
+  validates :occurred_at,   presence: true
   validates :remote_id,     presence: true, uniqueness: true
   validates :repository_id, presence: true
   validates :user_id,       presence: true
   validates :import_id,     presence: true
+  validates :raw_data,      presence: true
 
   scope :follows,               -> { where event_type: 'FollowEvent' }
   scope :gists,                 -> { where event_type: 'GistEvent' }
@@ -17,7 +19,7 @@ class Event < ActiveRecord::Base
   scope :pull_request_comments, -> { where event_type: 'PullRequestReviewEvent' }
   scope :pushes,                -> { where event_type: 'PushEvent' }
   scope :watches,               -> { where event_type: 'WatchEvent' }
-  
+  scope :recent,                -> { reorder('occurred_at desc') }
 
   def self.from_hash(user, github_hash)
     Event.new(
@@ -25,6 +27,7 @@ class Event < ActiveRecord::Base
       event_type: github_hash.type,
       distinct_size: github_hash.payload.distinct_size,
       raw_data: YAML::dump(github_hash),
+      occurred_at: github_hash.created_at,
       user: user
     ).tap do |event|
       event.repository = Repository.find_or_create_by(remote_id: github_hash.repo.id) do |repo|
