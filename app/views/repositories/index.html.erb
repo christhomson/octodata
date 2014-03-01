@@ -1,0 +1,7 @@
+<h1><%= current_user.username %>'s repositories</h1>
+
+<ul>
+  <% @repositories.each do |repository| %>
+    <li><%= repository.display_name %></li>
+  <% end %>
+</ul>

@@ -22,4 +22,10 @@ class EventTest < ActiveSupport::TestCase
 
     refute @event.valid?, "Event should require a remote_id, but it didn't."
   end
+
+  test "requires a user" do
+    @event.user = nil
+
+    refute @event.valid?, "Event should require a user, but it didn't."
+  end
 end

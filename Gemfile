@@ -19,8 +19,12 @@ gem 'resque-scheduler', '~> 2.5.5'
 
 gem 'github_api', '~> 0.11.3'
 
-group :development do
+group :development, :test do
   gem 'pry'
+end
+
+group :test do
+  gem 'mocha'
 end
 
 # Use unicorn as the app server

@@ -6,6 +6,7 @@ class Event < ActiveRecord::Base
   validates :event_type, presence: true
   validates :remote_id, presence: true
   validates :repository_id, presence: true
+  validates :user_id, presence: true
 
   scope :follows, -> { where type: 'FollowEvent' }
   scope :gists, -> { where type: 'GistEvent' }

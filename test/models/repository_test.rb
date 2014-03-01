@@ -34,4 +34,9 @@ class RepositoryTest < ActiveSupport::TestCase
 
     refute new_repo.valid?, "Repo should have a unique owner + name combination, but it didn't."
   end
+
+  test "users should produce a unique list of users" do
+    assert_operator @repo.users.size, :>, 0
+    assert_equal @repo.users, @repo.users.uniq
+  end
 end

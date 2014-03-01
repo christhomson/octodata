@@ -1,34 +1,42 @@
 joe_follow:
   event_type: FollowEvent
   remote_id: 24
+  user: joe
 
 joe_gist:
   event_type: GistEvent
   remote_id: 123
+  user: joe
 
 joe_issue_comment:
   event_type: IssueCommentEvent
   remote_id: 456
+  user: joe
 
 joe_issue:
   event_type: IssuesEvent
   remote_id: 2588
+  user: joe
 
 joe_pull_request:
   event_type: PullRequestEvent
   remote_id: 9823948
+  user: joe
 
 joe_pull_request_comment:
   event_type: PullRequestCommentEvent
   remote_id: 23423479
+  user: joe
 
 joe_push:
   event_type: PushEvent
   repository: rails
   remote_id: 42
   distinct_size: 8
+  user: joe
 
 joe_watch:
   event_type: WatchEvent
   repository: rails
   remote_id: 2842984
+  user: joe
