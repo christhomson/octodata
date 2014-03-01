@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
 
   after_create :queue_import
 
+  def github_client
+    @client ||= Github.new oauth_token: auth_token
+  end
+
   def self.from_auth(auth)
     where(username: auth[:info][:nickname]).first_or_initialize.tap do |user|
       user.auth_token = auth[:credentials][:token]

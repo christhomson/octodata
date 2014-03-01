@@ -17,6 +17,8 @@ gem 'omniauth-github', '~> 1.1.1'
 gem 'resque', '~> 1.25.1'
 gem 'resque-scheduler', '~> 2.5.5'
 
+gem 'github_api', '~> 0.11.3'
+
 group :development do
   gem 'pry'
 end

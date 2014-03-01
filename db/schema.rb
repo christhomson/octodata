@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140228035455) do
+ActiveRecord::Schema.define(version: 20140301060533) do
 
   create_table "events", force: true do |t|
     t.string   "event_type"
@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(version: 20140228035455) do
     t.integer  "distinct_size"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "import_id"
+    t.integer  "user_id"
+    t.text     "raw_data"
   end
 
   create_table "imports", force: true do |t|
