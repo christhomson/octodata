@@ -7,6 +7,16 @@ class Event < ActiveRecord::Base
   validates :remote_id, presence: true
   validates :repository_id, presence: true
 
+  scope :follows, -> { where type: 'FollowEvent' }
+  scope :gists, -> { where type: 'GistEvent' }
+  scope :issue_comments, -> { where type: 'IssueCommentEvent' }
+  scope :issues, -> { where type: 'IssuesEvent' }
+  scope :pull_requests, -> { where type: 'PullRequestEvent' }
+  scope :pull_request_comments, -> { where type: 'PullRequestReviewEvent' }
+  scope :pushes, -> { where type: 'PushEvent' }
+  scope :watches, -> { where type: 'WatchEvent' }
+  
+
   def self.from_hash(user, github_hash)
     Event.new(
       remote_id: github_hash.id,
