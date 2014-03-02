@@ -1,2 +1,0 @@
-class ForkApplyEvent < Event
-end
