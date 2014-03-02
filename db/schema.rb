@@ -24,19 +24,6 @@ ActiveRecord::Schema.define(version: 20140302015513) do
     t.string   "commit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "event_id"
-  end
-
-  create_table "commits", force: true do |t|
-    t.string   "sha"
-    t.string   "message"
-    t.string   "author_name"
-    t.string   "author_email"
-    t.string   "url"
-    t.boolean  "distinct"
-    t.integer  "repository_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "events", force: true do |t|

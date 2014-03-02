@@ -13,12 +13,8 @@ class GitHubImportJob
         events = github.activity.events.performed(user.username, page: page)
 
         events.each do |event|
-          e = Event.new(type: event.type)
-          e.github_event = event
-          e.user = user
-          e.remote_id = event[:id]
-          e.raw_data = YAML::dump(event)
-          e.import = import
+          next unless event.type == 'PushEvent' || event.type == 'CommitCommentEvent'
+          e = Event.from_github(event, user, import)
           return unless e.valid?
           e.save!
         end

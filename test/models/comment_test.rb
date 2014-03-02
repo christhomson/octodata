@@ -2,7 +2,7 @@ require 'test_helper'
 
 class CommentTest < ActiveSupport::TestCase
   setup do
-    @comment = comments(:bad_style_comment)
+    @comment = comments(:bad_style)
   end
 
   test "should require an HTML url" do
