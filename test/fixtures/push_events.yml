@@ -1,0 +1,10 @@
+joe_rails:
+  type: PushEvent
+  repository: rails
+  remote_id: 318409873
+  user: joe
+  occurred_at: <%= 15.minutes.ago %>
+  raw_data: todo
+  head: 2d73c91f47a8cf1723824c5bc803d4de04160fbc
+  ref: refs/heads/master
+  size: 2

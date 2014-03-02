@@ -2,7 +2,7 @@ require 'test_helper'
 
 class EventTest < ActiveSupport::TestCase
   setup do
-    @event = push_events(:joe_push)
+    @event = push_events(:joe_rails)
   end
 
   test "requires a type" do

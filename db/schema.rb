@@ -11,19 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140301192216) do
+ActiveRecord::Schema.define(version: 20140302011529) do
 
   create_table "events", force: true do |t|
     t.string   "type"
     t.integer  "repository_id"
     t.integer  "remote_id"
-    t.integer  "distinct_size"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "import_id"
     t.integer  "user_id"
     t.text     "raw_data"
     t.datetime "occurred_at"
+    t.string   "head"
+    t.string   "ref"
+    t.integer  "size"
   end
 
   create_table "imports", force: true do |t|
