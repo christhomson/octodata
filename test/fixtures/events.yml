@@ -52,3 +52,15 @@ delete:
   import: joe_import
   ref_type: branch
   ref: fix
+
+deployment:
+  type: DeploymentEvent
+  repository: rails
+  user: joe
+  remote_id: 28934
+  occurred_at: <%= 5.minutes.ago %>
+  raw_data: todo
+  import: joe_import
+  sha: 724d3921ceab2871a366b6f997118ed92522847b
+  payload: todo
+  description: Version 5.0.0.
