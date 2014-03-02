@@ -17,7 +17,8 @@ class Event < ActiveRecord::Base
       event.assign_attributes({
         import: import,
         remote_id: github_event.id,
-        raw_data: YAML::dump(github_event)
+        raw_data: YAML::dump(github_event),
+        occurred_at: github_event.created_at
       })
 
       owner, repo_name = github_event.repo.name.split('/')

@@ -29,12 +29,6 @@ class CommentTest < ActiveSupport::TestCase
     refute @comment.valid?, "Comment should require a body, but it didn't."
   end
 
-  test "should require a path" do
-    @comment.path = nil
-
-    refute @comment.valid?, "Comment should require a path, but it didn't."
-  end
-
   test "should require a commit_id" do
     @comment.commit_id = nil
 

@@ -14,6 +14,7 @@ class CommitCommentEvent < Event
   def comment_attributes(github_event)
     github_event.payload.comment.to_hash.tap do |comment|
       comment.delete('user')
+      comment.delete('id')
       comment[:remote_id] = github_event.payload.comment.id
     end
   end

@@ -3,8 +3,7 @@ class Comment < ActiveRecord::Base
   validates :url, presence: true
   validates :remote_id, presence: true, numericality: { only_integer: true }
   validates :body, presence: true
-  validates :path, presence: true
-  validates :position, numericality: { only_integer: true }
-  validates :line, numericality: { only_integer: true }
+  validates :position, numericality: { only_integer: true, allow_blank: true }
+  validates :line, numericality: { only_integer: true, allow_blank: true }
   validates :commit_id, presence: true
 end
