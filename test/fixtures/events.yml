@@ -8,6 +8,7 @@ push:
   head: 2d73c91f47a8cf1723824c5bc803d4de04160fbc
   ref: refs/heads/master
   size: 2
+  import: joe_import
 
 commit_comment:
   type: CommitCommentEvent
@@ -18,3 +19,12 @@ commit_comment:
   raw_data: todo
   import: joe_import
   comment: bad_style
+
+fork:
+  type: ForkEvent
+  repository: rails
+  user: joe
+  remote_id: 23423423
+  occurred_at: <%= 12.hours.ago %>
+  raw_data: todo
+  import: joe_import

@@ -8,6 +8,7 @@ class Event < ActiveRecord::Base
   validates :user_id,       presence: true
   validates :import_id,     presence: true
   validates :raw_data,      presence: true
+  validates :occurred_at,   presence: true
 
   scope :recent, -> { reorder('occurred_at desc') }
 

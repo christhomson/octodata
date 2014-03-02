@@ -13,7 +13,7 @@ class GitHubImportJob
         events = github.activity.events.performed(user.username, page: page)
 
         events.each do |event|
-          next unless event.type == 'PushEvent' || event.type == 'CommitCommentEvent'
+          next unless ['PushEvent', 'ForkEvent', 'CommitCommentEvent'].include? event.type
           e = Event.from_github(event, user, import)
           return unless e.valid?
           e.save!
