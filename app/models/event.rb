@@ -3,48 +3,11 @@ class Event < ActiveRecord::Base
   belongs_to :import
   belongs_to :repository
 
-  validates :event_type,    presence: true
-  validates :occurred_at,   presence: true
-  validates :remote_id,     presence: true, uniqueness: true
-  validates :repository_id, presence: true
+  validates :type,          presence: true
+  validates :remote_id,     presence: true, uniqueness: { scope: :type }
   validates :user_id,       presence: true
   validates :import_id,     presence: true
   validates :raw_data,      presence: true
 
-  scope :follows,               -> { where event_type: 'FollowEvent' }
-  scope :gists,                 -> { where event_type: 'GistEvent' }
-  scope :issue_comments,        -> { where event_type: 'IssueCommentEvent' }
-  scope :issues,                -> { where event_type: 'IssuesEvent' }
-  scope :pull_requests,         -> { where event_type: 'PullRequestEvent' }
-  scope :pull_request_comments, -> { where event_type: 'PullRequestReviewEvent' }
-  scope :pushes,                -> { where event_type: 'PushEvent' }
-  scope :watches,               -> { where event_type: 'WatchEvent' }
-  scope :recent,                -> { reorder('occurred_at desc') }
-
-  def self.from_hash(user, github_hash)
-    Event.new(
-      remote_id: github_hash.id,
-      event_type: github_hash.type,
-      distinct_size: github_hash.payload.distinct_size,
-      raw_data: YAML::dump(github_hash),
-      occurred_at: github_hash.created_at,
-      user: user
-    ).tap do |event|
-      event.repository = Repository.find_or_create_by(remote_id: github_hash.repo.id) do |repo|
-        repo.update_attributes(
-          owner: github_hash.repo.name.split('/').first,
-          name: github_hash.repo.name.split('/').last
-        )
-      end
-    end
-  end
-
-  def description
-    case event_type
-    when 'FollowEvent' then "followed #{repository.display_name}"
-    when 'PushEvent' then "pushed #{distinct_size} commits to #{repository.display_name}"
-    else
-      "did something to #{repository.display_name}"
-    end
-  end
+  scope :recent, -> { reorder('occurred_at desc') }
 end

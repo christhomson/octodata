@@ -1,0 +1,2 @@
+class DownloadEvent < Event
+end

@@ -1,0 +1,2 @@
+class ForkEvent < Event
+end

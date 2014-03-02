@@ -1,0 +1,2 @@
+class FollowEvent < Event
+end

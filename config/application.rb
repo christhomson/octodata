@@ -9,5 +9,6 @@ Bundler.require(:default, Rails.env)
 module Octodata
   class Application < Rails::Application
     I18n.enforce_available_locales = false
+    Rails.configuration.autoload_paths += %W(#{Rails.root}/app/models/events)
   end
 end

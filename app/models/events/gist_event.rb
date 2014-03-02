@@ -1,0 +1,2 @@
+class GistEvent < Event
+end

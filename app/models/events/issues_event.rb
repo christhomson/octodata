@@ -1,0 +1,2 @@
+class IssuesEvent < Event
+end

@@ -1,0 +1,2 @@
+class CommitCommentEvent < Event
+end

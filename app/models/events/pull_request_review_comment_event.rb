@@ -1,0 +1,2 @@
+class PullRequestReviewCommentEvent < Event
+end

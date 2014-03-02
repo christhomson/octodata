@@ -1,0 +1,2 @@
+class ReleaseEvent < Event
+end

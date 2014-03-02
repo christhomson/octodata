@@ -2,19 +2,13 @@ require 'test_helper'
 
 class EventTest < ActiveSupport::TestCase
   setup do
-    @event = events(:joe_push)
+    @event = push_events(:joe_push)
   end
 
-  test "requires an event_type" do
-    @event.event_type = nil
+  test "requires a type" do
+    @event.type = nil
 
     refute @event.valid?, "Event should require a type, but it didn't."
-  end
-
-  test "requires a repository" do
-    @event.repository = nil
-
-    refute @event.valid?, "Event should require a repository, but it didn't."
   end
 
   test "requires a remote_id" do
@@ -47,10 +41,7 @@ class EventTest < ActiveSupport::TestCase
     refute @event.valid?, "Event should require raw data, but it didn't."
   end
 
-  test "requires a unique remote_id" do
-    e = events(:joe_watch)
-    e.remote_id = @event.remote_id
-
-    refute @event.valid?, "Event should require a unique remote_id, but it didn't."
+  test "requires a unique remote_id scoped to the type" do
+    refute @event.dup.valid?, "Event should require a unique remote_id, but it didn't."
   end
 end

@@ -1,0 +1,2 @@
+class DeploymentEvent < Event
+end

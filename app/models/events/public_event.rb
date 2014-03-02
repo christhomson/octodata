@@ -1,0 +1,2 @@
+class PublicEvent < Event
+end

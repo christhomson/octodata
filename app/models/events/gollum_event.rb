@@ -1,0 +1,2 @@
+class GollumEvent < Event
+end

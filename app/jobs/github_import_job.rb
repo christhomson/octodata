@@ -13,7 +13,8 @@ class GitHubImportJob
         events = github.activity.events.performed(user.username, page: page)
 
         events.each do |event|
-          e = Event.from_hash(user, event)
+          e = Event.new(type: event.type)
+          e.github_event = event
           e.import = import
           return unless e.valid?
           e.save!

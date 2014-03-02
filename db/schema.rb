@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20140301192216) do
 
   create_table "events", force: true do |t|
-    t.string   "event_type"
+    t.string   "type"
     t.integer  "repository_id"
     t.integer  "remote_id"
     t.integer  "distinct_size"
@@ -33,11 +33,11 @@ ActiveRecord::Schema.define(version: 20140301192216) do
   end
 
   create_table "repositories", force: true do |t|
-    t.integer  "remote_id"
     t.string   "name"
     t.string   "owner"
     t.boolean  "private"
     t.boolean  "fork"
+    t.integer  "remote_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

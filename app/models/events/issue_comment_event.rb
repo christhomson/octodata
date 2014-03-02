@@ -1,0 +1,2 @@
+class IssueCommentEvent < Event
+end

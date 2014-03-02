@@ -1,0 +1,2 @@
+class TeamAddEvent < Event
+end

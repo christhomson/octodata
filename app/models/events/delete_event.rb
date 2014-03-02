@@ -1,0 +1,2 @@
+class DeleteEvent < Event
+end

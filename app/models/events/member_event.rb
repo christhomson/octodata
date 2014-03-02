@@ -1,0 +1,2 @@
+class MemberEvent < Event
+end
