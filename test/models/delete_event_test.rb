@@ -5,6 +5,10 @@ class DeleteEventTest < ActiveSupport::TestCase
     @event = events(:delete)
   end
 
+  test "should be valid" do
+    assert @event.valid?
+  end
+
   test "should require a repository" do
     @event.repository = nil
 

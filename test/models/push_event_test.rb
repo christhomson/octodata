@@ -5,6 +5,10 @@ class PushEventTest < ActiveSupport::TestCase
     @event = events(:push)
   end
 
+  test "should be valid" do
+    assert @event.valid?
+  end
+
   test "should require a head" do
     @event.head = nil
 

@@ -5,6 +5,10 @@ class DeploymentStatusEventTest < ActiveSupport::TestCase
     @event = events(:deployment_status)
   end
 
+  test "should be valid" do
+    assert @event.valid?
+  end
+
   test "should require a repository" do
     @event.repository = nil
 

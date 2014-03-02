@@ -5,6 +5,10 @@ class PullRequestReviewCommentEventTest < ActiveSupport::TestCase
     @event = events(:pull_request_review_comment)
   end
 
+  test "should be valid" do
+    assert @event.valid?
+  end
+
   test "should require a comment" do
     @event.comment = nil
 

@@ -5,6 +5,10 @@ class EventTest < ActiveSupport::TestCase
     @event = events(:push)
   end
 
+  test "should be valid" do
+    assert @event.valid?
+  end
+
   test "requires a type" do
     @event.type = nil
 

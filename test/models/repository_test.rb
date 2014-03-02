@@ -5,6 +5,10 @@ class RepositoryTest < ActiveSupport::TestCase
     @repo = repositories(:rails)
   end
 
+  test "should be valid" do
+    assert @repo.valid?
+  end
+
   test "should require a name" do
     @repo.name = nil
 

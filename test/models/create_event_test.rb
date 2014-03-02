@@ -5,6 +5,10 @@ class CreateEventTest < ActiveSupport::TestCase
     @event = events(:create)
   end
 
+  test "should be valid" do
+    assert @event.valid?
+  end
+
   test "should require a repository" do
     @event.repository = nil
 

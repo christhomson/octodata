@@ -5,6 +5,10 @@ class CommentTest < ActiveSupport::TestCase
     @comment = comments(:bad_style)
   end
 
+  test "should be valid" do
+    assert @comment.valid?
+  end
+
   test "should require an HTML url" do
     @comment.html_url = nil
 

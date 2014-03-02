@@ -5,6 +5,10 @@ class UserTest < ActiveSupport::TestCase
     @user = users(:joe)
   end
 
+  test "should be valid" do
+    assert @user.valid?
+  end
+
   test "should require a username" do
     @user.username = nil
 

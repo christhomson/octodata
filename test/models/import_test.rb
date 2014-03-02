@@ -5,6 +5,10 @@ class ImportTest < ActiveSupport::TestCase
     @import = imports(:joe_import)
   end
 
+  test "should be valid" do
+    assert @import.valid?
+  end
+
   test "requires a user id" do
     @import.user = nil
 
