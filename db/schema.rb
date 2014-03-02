@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140302201239) do
+ActiveRecord::Schema.define(version: 20140302213621) do
 
   create_table "comments", force: true do |t|
     t.string   "html_url"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20140302201239) do
     t.string   "state"
     t.string   "target_url"
     t.integer  "download_id"
+    t.string   "action"
   end
 
   create_table "imports", force: true do |t|

@@ -97,4 +97,12 @@ pull_request_review_comment:
   import: joe_import
   comment: bad_style
 
-
+watch:
+  type: WatchEvent
+  repository: rails
+  user: joe
+  remote_id: 248923
+  occurred_at: <%= Time.now %>
+  raw_data: todo
+  import: joe_import
+  action: started
