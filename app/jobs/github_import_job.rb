@@ -4,13 +4,12 @@ class GitHubImportJob
   def perform(user)
     begin
       github = user.github_client
-      page = 1
       import = user.imports.create!
       Rails.logger.info "Started import for #{user.username}."
 
-      Import::PAGE_LIMIT.times do
-        Rails.logger.info "Importing page #{page} for #{user.username}."
-        events = github.activity.events.performed(user.username, page: page)
+      Import::PAGE_LIMIT.times do |page|
+        Rails.logger.info "Importing page #{page + 1} for #{user.username}."
+        events = github.activity.events.performed(user.username, page: page + 1)
 
         events.each do |event|
           next unless ['PushEvent', 'ForkEvent', 'CommitCommentEvent'].include? event.type
@@ -18,8 +17,6 @@ class GitHubImportJob
           return unless e.valid?
           e.save!
         end
-
-        page += 1
       end
 
     ensure
