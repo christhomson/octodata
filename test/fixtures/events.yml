@@ -64,3 +64,16 @@ deployment:
   sha: 724d3921ceab2871a366b6f997118ed92522847b
   payload: todo
   description: Version 5.0.0.
+
+deployment_status:
+  type: DeploymentStatusEvent
+  repository: rails
+  user: joe
+  remote_id: 238923
+  occurred_at: <%= 1.minute.ago %>
+  raw_data: todo
+  import: joe_import
+  sha: 724d3921ceab2871a366b6f997118ed92522847b
+  payload: todo
+  target_url: http://example.com/
+  description: Version 5.0.0 has been released.
