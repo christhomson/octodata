@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140302015513) do
+ActiveRecord::Schema.define(version: 20140302193414) do
 
   create_table "comments", force: true do |t|
     t.string   "html_url"
@@ -40,6 +40,9 @@ ActiveRecord::Schema.define(version: 20140302015513) do
     t.string   "ref"
     t.integer  "size"
     t.integer  "comment_id"
+    t.string   "ref_type"
+    t.string   "master_branch"
+    t.string   "description"
   end
 
   create_table "imports", force: true do |t|

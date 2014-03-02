@@ -28,3 +28,16 @@ fork:
   occurred_at: <%= 12.hours.ago %>
   raw_data: todo
   import: joe_import
+
+create:
+  type: CreateEvent
+  repository: rails
+  user: joe
+  remote_id: 32598
+  occurred_at: <%= 1.week.ago %>
+  raw_data: todo
+  import: joe_import
+  ref_type: branch
+  ref: master
+  master_branch: master
+  description: Ruby on Rails
