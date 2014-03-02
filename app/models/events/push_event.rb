@@ -9,7 +9,7 @@ class PushEvent < Event
     end
   end
 
-  def description
+  def action_description
     "#{user.username} pushed #{size} to #{repository.display_name}"
   end
 end

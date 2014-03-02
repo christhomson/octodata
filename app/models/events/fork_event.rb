@@ -4,7 +4,7 @@ class ForkEvent < Event
   def github_event=(github_event)
   end
 
-  def description
+  def action_description
     "#{user.username} forked #{repository.display_name}"
   end
 end

@@ -14,4 +14,8 @@ class CommitCommentEventTest < ActiveSupport::TestCase
   test "should require a unique comment" do
     refute @event.dup.valid?, "CommitCommentEvent should require a unique comment."
   end
+
+  test "should have an action description" do
+    assert @event.action_description.present?, "CommitCommentEvent should have an action description, but it didn't."
+  end
 end

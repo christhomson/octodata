@@ -11,7 +11,7 @@ class ForkEventTest < ActiveSupport::TestCase
     refute @event.valid?, "ForkEvent should require a repository, but it didn't."
   end
 
-  test "should have a description" do
-    assert @event.description.present?, "ForkEvent should have a description."
+  test "should have an action description" do
+    assert @event.action_description.present?, "ForkEvent should have an action description."
   end
 end

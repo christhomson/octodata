@@ -2,6 +2,6 @@
 
 <ul>
   <% @events.each do |event| %>
-    <li>You <%= event.description %> <%= time_ago_in_words(event.occurred_at) %> ago</li>
+    <li>You <%= event.action_description %> <%= time_ago_in_words(event.occurred_at) %> ago</li>
   <% end %>
 </ul>

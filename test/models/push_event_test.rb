@@ -23,7 +23,7 @@ class PushEventTest < ActiveSupport::TestCase
     refute @event.valid?, "PushEvent should require a size, but it didn't."
   end
 
-  test "should have a description" do
-    assert @event.description.present?, "PushEvent should have a description, but it didn't."
+  test "should have an action description" do
+    assert @event.action_description.present?, "PushEvent should have an action description, but it didn't."
   end
 end
