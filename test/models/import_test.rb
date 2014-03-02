@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ImportTest < ActiveSupport::TestCase
   setup do
-    @import = imports(:joeimport)
+    @import = imports(:joe_import)
   end
 
   test "requires a user id" do
