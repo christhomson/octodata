@@ -41,3 +41,14 @@ create:
   ref: master
   master_branch: master
   description: Ruby on Rails
+
+delete:
+  type: DeleteEvent
+  repository: rails
+  user: joe
+  remote_id: 32598
+  occurred_at: <%= 1.week.ago %>
+  raw_data: todo
+  import: joe_import
+  ref_type: branch
+  ref: fix
