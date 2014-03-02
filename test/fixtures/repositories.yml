@@ -4,3 +4,10 @@ rails:
   private: false
   fork: false
   remote_id: 242424
+
+angular:
+  name: angular
+  owner: angular
+  private: false
+  fork: false
+  remote_id: 52892

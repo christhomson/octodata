@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140302200508) do
+ActiveRecord::Schema.define(version: 20140302201239) do
 
   create_table "comments", force: true do |t|
     t.string   "html_url"
@@ -24,6 +24,20 @@ ActiveRecord::Schema.define(version: 20140302200508) do
     t.string   "commit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "downloads", force: true do |t|
+    t.string   "url"
+    t.string   "html_url"
+    t.integer  "remote_id"
+    t.string   "name"
+    t.string   "description"
+    t.integer  "size"
+    t.integer  "download_count"
+    t.string   "content_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "repository_id"
   end
 
   create_table "events", force: true do |t|
@@ -47,6 +61,7 @@ ActiveRecord::Schema.define(version: 20140302200508) do
     t.string   "sha"
     t.string   "state"
     t.string   "target_url"
+    t.integer  "download_id"
   end
 
   create_table "imports", force: true do |t|
