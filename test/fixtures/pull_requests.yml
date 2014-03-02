@@ -1,0 +1,24 @@
+rails:
+  url: https://github.com/rails/rails/pull/1
+  number: 1
+  state: open
+  title: All the things
+  body: There is a lot of cool stuff in this PR.
+  remote_created_at: <%= 7.years.ago %>
+  closed_at: <%= 5.years.ago %>
+  merged_at: <%= 5.years.ago %>
+  head_sha: 6dcb09b5b57875f334f61aebed695e2e4193db5e
+  head_ref: all-the-things
+  base_sha: 6dcb09b5b57875f334f61aebed695e2e4193db5e
+  base_ref: master
+  repository: rails
+  merge_commit_sha: e5bd3914e2e596debea16f433f57875b5b90bcd6
+  merged: true
+  mergeable: true
+  mergeable_state: unknown
+  merged_by: dhh
+  comments: 100
+  commits: 5
+  additions: 303
+  deletions: 102
+  changed_files: 15

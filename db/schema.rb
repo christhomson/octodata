@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140302213621) do
+ActiveRecord::Schema.define(version: 20140302231448) do
 
   create_table "comments", force: true do |t|
     t.string   "html_url"
@@ -24,20 +24,6 @@ ActiveRecord::Schema.define(version: 20140302213621) do
     t.string   "commit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "downloads", force: true do |t|
-    t.string   "url"
-    t.string   "html_url"
-    t.integer  "remote_id"
-    t.string   "name"
-    t.string   "description"
-    t.integer  "size"
-    t.integer  "download_count"
-    t.string   "content_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "repository_id"
   end
 
   create_table "events", force: true do |t|
@@ -61,14 +47,45 @@ ActiveRecord::Schema.define(version: 20140302213621) do
     t.string   "sha"
     t.string   "state"
     t.string   "target_url"
-    t.integer  "download_id"
     t.string   "action"
+    t.integer  "pull_request_id"
   end
 
   create_table "imports", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "pull_requests", force: true do |t|
+    t.string   "url"
+    t.integer  "number"
+    t.string   "state"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "remote_created_at"
+    t.datetime "closed_at"
+    t.datetime "merged_at"
+    t.string   "head_sha"
+    t.string   "head_ref"
+    t.string   "base_sha"
+    t.string   "base_ref"
+    t.string   "merge_commit_sha"
+    t.boolean  "merged"
+    t.boolean  "mergeable"
+    t.string   "merged_by"
+    t.integer  "comments"
+    t.integer  "commits"
+    t.integer  "additions"
+    t.integer  "deletions"
+    t.integer  "changed_files"
+    t.integer  "repository_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "milestone"
+    t.string   "assignee"
+    t.string   "mergeable_state"
+    t.integer  "remote_id"
   end
 
   create_table "repositories", force: true do |t|
