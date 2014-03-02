@@ -86,3 +86,15 @@ public:
   occurred_at: <%= 30.seconds.ago %>
   raw_data: todo
   import: joe_import
+
+pull_request_review_comment:
+  type: PullRequestReviewCommentEvent
+  repository: rails
+  user: joe
+  remote_id: 2842394
+  occurred_at: <%= 10.minutes.ago %>
+  raw_data: todo
+  import: joe_import
+  comment: bad_style
+
+
