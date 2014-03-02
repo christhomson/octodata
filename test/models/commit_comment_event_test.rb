@@ -2,7 +2,7 @@ require 'test_helper'
 
 class CommitCommentEventTest < ActiveSupport::TestCase
   setup do
-    @event = commit_comment_events(:bad_style)
+    @event = events(:commit_comment)
   end
 
   test "should require a comment" do

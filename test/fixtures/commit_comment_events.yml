@@ -1,9 +1,0 @@
-bad_style:
-  type: CommitCommentEvent
-  repository: rails
-  remote_id: 31840987233
-  user: joe
-  occurred_at: <%= 15.minutes.ago %>
-  raw_data: todo
-  import: joe_import
-  comment: bad_style

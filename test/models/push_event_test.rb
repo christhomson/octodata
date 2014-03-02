@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PushEventTest < ActiveSupport::TestCase
   setup do
-    @event = push_events(:joe_rails)
+    @event = events(:push)
   end
 
   test "should require a head" do
