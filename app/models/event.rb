@@ -1,4 +1,6 @@
 class Event < ActiveRecord::Base
+  DEPRECATED_TYPES = %w{DownloadEvent ForkApplyEvent GistEvent}
+
   belongs_to :user
   belongs_to :import
   belongs_to :repository

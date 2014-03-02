@@ -1,2 +1,0 @@
-class GistEvent < Event
-end

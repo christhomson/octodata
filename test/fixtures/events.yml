@@ -77,13 +77,3 @@ deployment_status:
   payload: todo
   target_url: http://example.com/
   description: Version 5.0.0 has been released.
-
-download:
-  type: DownloadEvent
-  repository: rails
-  user: joe
-  remote_id: 2342423
-  occurred_at: <%= 2.weeks.ago %>
-  raw_data: todo
-  import: joe_import
-  download: jpg
