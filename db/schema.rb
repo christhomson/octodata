@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140303015537) do
+ActiveRecord::Schema.define(version: 20140303023355) do
 
   create_table "comments", force: true do |t|
     t.string   "html_url"
@@ -24,6 +24,19 @@ ActiveRecord::Schema.define(version: 20140303015537) do
     t.string   "commit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "commits", force: true do |t|
+    t.string   "sha"
+    t.string   "message"
+    t.string   "author_name"
+    t.string   "author_email"
+    t.string   "url"
+    t.boolean  "distinct"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "event_type"
   end
 
   create_table "events", force: true do |t|

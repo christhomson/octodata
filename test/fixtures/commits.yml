@@ -1,0 +1,7 @@
+rails:
+  sha: a53cda2bf6b3f4cc994ff15b50cdef3e03f21173
+  message: Fixed some stuff.
+  author_name: John Doe
+  author_email: john.doe@example.com
+  url: https://api.github.com/repos/christhomson/octodata/commits/23c5e2df98adb01a36322f4873ab68cfec65e502
+  distinct: true
