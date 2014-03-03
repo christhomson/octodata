@@ -13,7 +13,7 @@ class GitHubImportJob
 
         events.each do |event|
           e = Event.from_github(event, user, import)
-          next if Event::DEPRECATED_TYPES.include? e.type
+          next if Event::EXCLUDED_TYPES.include? e.type
           return unless e.valid?
           e.save!
         end

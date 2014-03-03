@@ -1,5 +1,9 @@
 class Event < ActiveRecord::Base
-  DEPRECATED_TYPES = %w{DownloadEvent ForkApplyEvent GistEvent}
+  EXCLUDED_TYPES = %w{
+    DownloadEvent ForkApplyEvent GistEvent
+    GollumEvent MemberEvent ReleaseEvent
+    StatusEvent TeamAddEvent
+  }
 
   belongs_to :user
   belongs_to :import
