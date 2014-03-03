@@ -119,3 +119,14 @@ issue_comment:
   issue: rails
   comment: bad_style
   action: created
+
+issues:
+  type: IssuesEvent
+  repository: rails
+  user: joe
+  remote_id: 1235436
+  occurred_at: <%= 15.seconds.ago %>
+  raw_data: todo
+  import: joe_import
+  issue: rails
+  action: opened
