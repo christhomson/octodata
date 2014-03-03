@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
+ruby '2.1.0'
 
 gem 'rails', '4.0.3'
 gem 'sqlite3'
@@ -19,10 +19,14 @@ gem 'resque-scheduler', '~> 2.5.5'
 
 gem 'github_api', '~> 0.11.3'
 
-gem 'capistrano', '~> 3.1.0'
 
 group :development, :test do
   gem 'pry'
+  gem 'capistrano', '~> 3.1.0'
+end
+
+group 'production' do
+  gem 'thin', '~> 1.6.1'
 end
 
 group :test do
