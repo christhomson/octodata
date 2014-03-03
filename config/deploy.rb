@@ -45,6 +45,23 @@ namespace :vlad do
     end
   end
 
+  namespace :resque_scheduler do
+    remote_task :start, roles: :app do
+      puts "Starting Resque scheduler..."
+      sudo "start octodata_resque_scheduler"
+    end
+
+    remote_task :stop, roles: :app do
+      puts "Attempting to stop Resque scheduler..."
+      sudo "stop octodata_resque_scheduler"
+    end
+
+    remote_task :restart, roles: :app do
+      puts "Restarting Resque scheduler..."
+      sudo "restart octodata_resque_scheduler"
+    end
+  end
+
   remote_task :symlink_config, roles: :app do
     files = %w{database.yml settings.yml}
 
