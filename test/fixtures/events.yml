@@ -130,3 +130,12 @@ issues:
   import: joe_import
   issue: rails
   action: opened
+
+follow:
+  type: FollowEvent
+  user: joe
+  target_user: chris
+  remote_id: 12
+  occurred_at: <%= Time.now %>
+  raw_data: todo
+  import: joe_import
