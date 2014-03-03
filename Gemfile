@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
+ruby '2.1.0'
 
 gem 'rails', '4.0.3'
 gem 'sqlite3'
@@ -19,12 +19,21 @@ gem 'resque-scheduler', '~> 2.5.5'
 
 gem 'github_api', '~> 0.11.3'
 
+group :development do
+  gem 'vlad', '~> 2.6.3'
+  gem 'vlad-git', '~> 2.2.0'
+end
+
 group :development, :test do
   gem 'pry'
 end
 
 group :test do
   gem 'mocha'
+end
+
+group :production do
+  gem 'thin', '~> 1.6.1'
 end
 
 # Use unicorn as the app server

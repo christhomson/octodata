@@ -17,5 +17,6 @@ rerun.txt
 pickle-email-*.html
 .project
 config/settings.yml
+config/database.yml
 *.log
 dump.rdb
