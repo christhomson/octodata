@@ -1,5 +1,5 @@
 class GitHubImportJob
-  @queue = :github
+  @queue = :octodata
 
   def self.perform(username)
     user = User.find_or_create_by(username: username)

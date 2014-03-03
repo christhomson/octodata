@@ -56,6 +56,7 @@ namespace :vlad do
   task :deploy => [
     "vlad:update",
     "vlad:symlink_config",
+    "vlad:migrate",
     "vlad:bundle:install",
     "vlad:thin:restart",
     "vlad:resque:restart",
