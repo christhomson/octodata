@@ -7,7 +7,9 @@ class IssuesEvent < Event
 
   def github_event=(github_event)
     self.action = github_event.payload.action
-    self.build_issue(issue_attributes(github_event)).save!
+    self.issue = Issue.find_or_initialize_by(repository: repository, number: github_event.payload.issue.number)
+    self.issue.assign_attributes(issue_attributes(github_event))
+    self.issue.save!
   end
 
   def action_description
