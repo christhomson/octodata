@@ -14,10 +14,9 @@ gem 'turbolinks'
 gem 'omniauth', '~> 1.2.1'
 gem 'omniauth-github', '~> 1.1.1'
 
-gem 'resque', '~> 1.25.1'
-gem 'resque-scheduler', '~> 2.5.5'
-
 gem 'github_api', '~> 0.11.3'
+
+gem 'whenever', '~> 0.9.1'
 
 group :development do
   gem 'vlad', '~> 2.6.3'

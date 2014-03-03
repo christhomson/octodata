@@ -21,6 +21,31 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.import_all
+    User.all.map(&:import!)
+  end
+
+  def import!
+    import = imports.build
+    import.save!
+    Rails.logger.info "Started import for #{username}."
+
+    Import::PAGE_LIMIT.times do |page|
+      Rails.logger.info "Importing page #{page + 1} for #{username}."
+      events = github_client.activity.events.performed(username, page: page + 1)
+
+      events.each do |event|
+        e = Event.from_github(event, self, import)
+        next if Event::EXCLUDED_TYPES.include? e.type
+        return unless e.valid?
+        e.save!
+      end
+    end
+
+  ensure
+    Rails.logger.info "Finished import for #{username}."
+  end
+
   private
 
   def queue_import

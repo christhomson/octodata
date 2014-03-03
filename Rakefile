@@ -9,6 +9,5 @@ rescue LoadError
 end
 
 require File.expand_path('../config/application', __FILE__)
-require 'resque/tasks'
 
 Octodata::Application.load_tasks

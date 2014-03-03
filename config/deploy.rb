@@ -7,8 +7,8 @@ set :domain, "#{user}@deploy.cthomson.ca"
 set :deploy_to, "/home/deploy/apps/octodata"
 set :revision, "origin/master"
 
-# On the server side, the upstart scripts (config/upstart) should be installed to /etc/init.
-# We also need to allow the "[start|stop|restart] [thin|resque]" commands with no password for this user.
+# On the server side, the upstart scripts should be installed to /etc/init.
+# We also need to allow the "[start|stop|restart] [thin]" commands with no password for this user.
 
 namespace :vlad do
   namespace :thin do
@@ -28,38 +28,8 @@ namespace :vlad do
     end
   end
 
-  namespace :resque do
-    remote_task :start, roles: :app do
-      puts "Starting Resque worker..."
-      sudo "start octodata_resque"
-    end
-
-    remote_task :stop, roles: :app do
-      puts "Attempting to stop Resque worker..."
-      sudo "stop octodata_resque"
-    end
-
-    remote_task :restart, roles: :app do
-      puts "Restarting Resque worker..."
-      sudo "restart octodata_resque"
-    end
-  end
-
-  namespace :resque_scheduler do
-    remote_task :start, roles: :app do
-      puts "Starting Resque scheduler..."
-      sudo "start octodata_resque_scheduler"
-    end
-
-    remote_task :stop, roles: :app do
-      puts "Attempting to stop Resque scheduler..."
-      sudo "stop octodata_resque_scheduler"
-    end
-
-    remote_task :restart, roles: :app do
-      puts "Restarting Resque scheduler..."
-      sudo "restart octodata_resque_scheduler"
-    end
+  remote_task :update_cron, roles: :app do
+    run "whenever --update-crontab"
   end
 
   remote_task :symlink_config, roles: :app do
@@ -76,12 +46,11 @@ namespace :vlad do
     "vlad:migrate",
     "vlad:bundle:install",
     "vlad:thin:restart",
-    "vlad:resque:restart",
+    "vlad:cron:update",
     "vlad:cleanup"
   ]
 
   task :start => [
     "vlad:thin:restart",
-    "vlad:resque:restart"
   ]
 end
