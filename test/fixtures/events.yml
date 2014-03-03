@@ -107,3 +107,15 @@ watch:
   raw_data: todo
   import: joe_import
   action: started
+
+issue_comment:
+  type: IssueCommentEvent
+  repository: rails
+  user: joe
+  remote_id: 23423
+  occurred_at: <%= 3.days.ago %>
+  raw_data: todo
+  import: joe_import
+  issue: rails
+  comment: bad_style
+  action: created

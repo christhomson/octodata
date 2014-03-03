@@ -1,0 +1,11 @@
+rails:
+  url: https://github.com/rails/rails/issues/14249
+  remote_id: 2324234
+  number: 14249
+  title: Some problem
+  creator: dhh
+  state: open
+  comments: 1
+  remote_created_at: <%= 2.days.ago %>
+  pull_request: false
+  repository: rails

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140302231448) do
+ActiveRecord::Schema.define(version: 20140303005343) do
 
   create_table "comments", force: true do |t|
     t.string   "html_url"
@@ -49,12 +49,32 @@ ActiveRecord::Schema.define(version: 20140302231448) do
     t.string   "target_url"
     t.string   "action"
     t.integer  "pull_request_id"
+    t.integer  "issue_id"
   end
 
   create_table "imports", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "issues", force: true do |t|
+    t.string   "url"
+    t.integer  "remote_id"
+    t.integer  "number"
+    t.string   "title"
+    t.string   "creator"
+    t.string   "state"
+    t.string   "assignee"
+    t.string   "milestone"
+    t.integer  "comments"
+    t.datetime "remote_created_at"
+    t.datetime "closed_at"
+    t.boolean  "pull_request"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "repository_id"
   end
 
   create_table "pull_requests", force: true do |t|

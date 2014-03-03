@@ -5,5 +5,4 @@ class Comment < ActiveRecord::Base
   validates :body, presence: true
   validates :position, numericality: { only_integer: true, allow_blank: true }
   validates :line, numericality: { only_integer: true, allow_blank: true }
-  validates :commit_id, presence: true
 end
