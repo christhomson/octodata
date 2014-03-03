@@ -11,10 +11,8 @@ class IssueCommentEvent < Event
     self.action = github_event.payload.action
     self.issue = Issue.find_or_initialize_by(repository: repository, number: github_event.payload.issue.number)
     self.issue.assign_filtered_attributes(github_event)
-    self.issue.save!
 
     self.build_comment.assign_filtered_attributes(github_event)
-    self.comment.save!
   end
 
   def action_description

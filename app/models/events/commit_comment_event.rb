@@ -7,6 +7,6 @@ class CommitCommentEvent < Event
   end
 
   def github_event=(github_event)
-    build_comment.assign_filtered_attributes(github_event).save!
+    build_comment.assign_filtered_attributes(github_event)
   end
 end

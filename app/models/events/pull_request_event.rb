@@ -5,7 +5,7 @@ class PullRequestEvent < Event
   def github_event=(github_event)
     self.action = github_event.payload.action
     self.pull_request = PullRequest.find_or_initialize_by(repository: repository, number: github_event.payload.pull_request.number)
-    self.pull_request.assign_filtered_attributes(github_event).save!
+    self.pull_request.assign_filtered_attributes(github_event)
   end
 
   def action_description

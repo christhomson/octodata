@@ -3,7 +3,7 @@ class PullRequestReviewCommentEvent < Event
   validates :comment, presence: true
 
   def github_event=(github_event)
-    self.build_comment.assign_filtered_attributes(github_event).save!
+    self.build_comment.assign_filtered_attributes(github_event)
   end
 
   def action_description
