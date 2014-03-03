@@ -24,6 +24,6 @@ class User < ActiveRecord::Base
   private
 
   def queue_import
-    Resque.enqueue(GitHubImportJob, self)
+    Resque.enqueue(GitHubImportJob, username)
   end
 end

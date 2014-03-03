@@ -1,7 +1,9 @@
 class GitHubImportJob
   @queue = :github
 
-  def perform(user)
+  def self.perform(username)
+    user = User.find_or_create_by(username: username)
+
     begin
       github = user.github_client
       import = user.imports.create!
@@ -21,7 +23,7 @@ class GitHubImportJob
 
     ensure
       Rails.logger.info "Finished import for #{user.username}."
-      Resque.enqueue_in(2.hours, GitHubImportJob, user)
+      Resque.enqueue_in(2.hours, GitHubImportJob, username)
     end
   end
 end

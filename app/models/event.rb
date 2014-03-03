@@ -35,4 +35,9 @@ class Event < ActiveRecord::Base
       })
     end
   end
+
+  protected
+  def short_sha(sha)
+    sha[0..7]
+  end
 end
