@@ -5,6 +5,6 @@ class ForkEvent < Event
   end
 
   def action_description
-    "#{user.username} forked #{repository.display_name}"
+    "forked #{repository.display_name}"
   end
 end

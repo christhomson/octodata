@@ -13,9 +13,9 @@ class CreateEvent < Event
   def action_description
     case ref_type
     when 'repository'
-      "#{user.username} created the #{ref_type} #{repository.display_name}"
+      "created the #{ref_type} #{repository.display_name}"
     else
-      "#{user.username} created the #{ref_type} #{ref} on #{repository.display_name}"
+      "created the #{ref_type} #{ref} on #{repository.display_name}"
     end
   end
 end

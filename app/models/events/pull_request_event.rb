@@ -9,6 +9,6 @@ class PullRequestEvent < Event
   end
 
   def action_description
-    "#{user.username} #{action} pull request ##{pull_request.number} (#{pull_request.title}) on #{repository.display_name}"
+    "#{action} pull request ##{pull_request.number} (#{pull_request.title}) on #{repository.display_name}"
   end
 end

@@ -9,6 +9,6 @@ class DeploymentEvent < Event
   end
 
   def action_description
-    "#{user.username} created a deployment for #{short_sha(sha)} on #{repository.display_name}"
+    "created a deployment for #{short_sha(sha)} on #{repository.display_name}"
   end
 end

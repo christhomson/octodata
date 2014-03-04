@@ -10,6 +10,6 @@ class DeploymentStatusEvent < Event
   end
 
   def action_description
-    "Status of deployment of #{short_sha(sha)} in #{repository.display_name} changed to #{state}."
+    "changed the status of the #{short_sha(sha)} deployment in #{repository.display_name} to #{state}."
   end
 end

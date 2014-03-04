@@ -6,6 +6,6 @@ class FollowEvent < Event
   end
 
   def action_description
-    "#{user.username} followed #{target_user}"
+    "followed #{target_user}"
   end
 end

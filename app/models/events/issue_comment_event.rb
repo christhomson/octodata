@@ -16,6 +16,6 @@ class IssueCommentEvent < Event
   end
 
   def action_description
-    "#{user.username} commented on issue ##{issue.number} (#{issue.title}) on #{repository.display_name}"
+    "commented on issue ##{issue.number} (#{issue.title}) on #{repository.display_name}"
   end
 end

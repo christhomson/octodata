@@ -22,6 +22,6 @@ class PushEvent < Event
   end
 
   def action_description
-    "#{user.username} pushed #{size} commits to #{repository.display_name}"
+    "pushed #{size} commits to #{repository.display_name}"
   end
 end

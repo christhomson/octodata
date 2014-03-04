@@ -12,6 +12,6 @@ class IssuesEvent < Event
   end
 
   def action_description
-    "#{user.username} #{action} issue ##{issue.number} on #{repository.display_name}"
+    "#{action} issue ##{issue.number} on #{repository.display_name}"
   end
 end

@@ -11,6 +11,6 @@ class MemberEvent < Event
   end
 
   def action_description
-    "#{user.username} #{action} #{target_user} to #{repository.display_name}"
+    "#{action} #{target_user} to #{repository.display_name}"
   end
 end

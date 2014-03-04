@@ -11,6 +11,6 @@ class ReleaseEvent < Event
   end
 
   def action_description
-    "#{user.username} #{action} the release #{release.name} on #{repository.display_name}"
+    "#{action} the release #{release.name} on #{repository.display_name}"
   end
 end

@@ -7,6 +7,6 @@ class WatchEvent < Event
   end
 
   def action_description
-    "#{user.username} watched #{repository.display_name}"
+    "watched #{repository.display_name}"
   end
 end

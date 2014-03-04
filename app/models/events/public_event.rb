@@ -3,6 +3,6 @@ class PublicEvent < Event
   end
 
   def action_description
-    "#{user.username} open-sourced #{repository.display_name}"
+    "open-sourced #{repository.display_name}"
   end
 end

@@ -7,6 +7,6 @@ class PullRequestReviewCommentEvent < Event
   end
 
   def action_description
-    "#{user.username} commented on a pull request"
+    "commented on a pull request"
   end
 end

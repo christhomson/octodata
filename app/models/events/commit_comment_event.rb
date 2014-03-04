@@ -3,7 +3,7 @@ class CommitCommentEvent < Event
    validates :comment, presence: true
 
   def action_description
-    "#{user.username} commented on a commit (#{short_sha(comment.commit_id)}) in #{repository.display_name}"
+    "commented on a commit (#{short_sha(comment.commit_id)}) in #{repository.display_name}"
   end
 
   def github_event=(github_event)

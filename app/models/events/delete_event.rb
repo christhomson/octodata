@@ -10,6 +10,6 @@ class DeleteEvent < Event
   end
 
   def action_description
-    "#{user.username} deleted the #{ref_type} #{ref} from #{repository.display_name}"
+    "deleted the #{ref_type} #{ref} from #{repository.display_name}"
   end
 end
