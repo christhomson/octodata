@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_filter :ensure_logged_in
+
   def create
     user = User.from_auth(auth_hash)
     session[:username] = user.username
