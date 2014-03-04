@@ -1,4 +1,6 @@
 class Event < ActiveRecord::Base
+  include ActionView::Helpers::TextHelper
+
   EXCLUDED_TYPES = %w{
     DownloadEvent ForkApplyEvent GistEvent
     GollumEvent StatusEvent TeamAddEvent
