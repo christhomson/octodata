@@ -1,7 +1,9 @@
 language: ruby
 cache: bundler
 bundler_args: --without production
-before_script: cp config/settings.yml.example config/settings.yml
+before_script:
+  - cp config/database.yml.example config/database.yml
+  - cp config/settings.yml.example config/settings.yml
 rvm:
   - 2.1.0
 notifications:
