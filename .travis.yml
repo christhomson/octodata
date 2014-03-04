@@ -3,7 +3,7 @@ cache: bundler
 bundler_args: --without production
 before_script: cp config/settings.yml.example config/settings.yml
 rvm:
-  - 2.1.1
+  - 2.1.0
 notifications:
   email: false
 services:
