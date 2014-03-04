@@ -46,7 +46,6 @@ namespace :vlad do
     "vlad:bundle:install",
     "vlad:symlink_config",
     "vlad:migrate",
-    "vlad:update_cron",
     "vlad:thin:restart",
     "vlad:cleanup"
   ]
