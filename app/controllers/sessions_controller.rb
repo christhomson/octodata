@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
     user = User.from_auth(auth_hash)
     session[:username] = user.username
 
+    user.import! if user.imports.empty?
     redirect_to root_url
   end
 

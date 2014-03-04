@@ -7,6 +7,7 @@ set :domain, "#{user}@deploy.cthomson.ca"
 set :deploy_to, "/home/deploy/apps/octodata"
 set :revision, "origin/master"
 
+shared_paths.merge!({"production.sqlite3" => "db/production.sqlite3"})
 # On the server side, the upstart scripts should be installed to /etc/init.
 # We also need to allow the "[start|stop|restart] [thin]" commands with no password for this user.
 
@@ -29,7 +30,7 @@ namespace :vlad do
   end
 
   remote_task :update_cron, roles: :app do
-    run "whenever --update-crontab"
+    run "cd #{current_path}; bundle exec whenever --update-crontab"
   end
 
   remote_task :symlink_config, roles: :app do
@@ -42,11 +43,11 @@ namespace :vlad do
 
   task :deploy => [
     "vlad:update",
+    "vlad:bundle:install",
     "vlad:symlink_config",
     "vlad:migrate",
-    "vlad:bundle:install",
+    "vlad:update_cron",
     "vlad:thin:restart",
-    "vlad:cron:update",
     "vlad:cleanup"
   ]
 
