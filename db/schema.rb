@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140303023355) do
+ActiveRecord::Schema.define(version: 20140304000137) do
 
   create_table "comments", force: true do |t|
     t.string   "html_url"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20140303023355) do
     t.integer  "pull_request_id"
     t.integer  "issue_id"
     t.string   "target_user"
+    t.integer  "release_id"
   end
 
   create_table "imports", force: true do |t|
@@ -120,6 +121,23 @@ ActiveRecord::Schema.define(version: 20140303023355) do
     t.string   "assignee"
     t.string   "mergeable_state"
     t.integer  "remote_id"
+  end
+
+  create_table "releases", force: true do |t|
+    t.string   "url"
+    t.integer  "remote_id"
+    t.string   "tag_name"
+    t.string   "target_commitish"
+    t.string   "name"
+    t.text     "body"
+    t.boolean  "draft"
+    t.boolean  "prerelease"
+    t.datetime "remote_created_at"
+    t.string   "author"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "published_at"
+    t.integer  "repository_id"
   end
 
   create_table "repositories", force: true do |t|

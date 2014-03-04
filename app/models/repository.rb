@@ -2,6 +2,7 @@ class Repository < ActiveRecord::Base
   has_many :events
   has_many :users, -> { uniq }, as: :actors, through: :events
   has_many :pull_requests
+  has_many :releases
 
   validates :name, presence: true
   validates :owner, presence: true

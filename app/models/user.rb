@@ -6,8 +6,6 @@ class User < ActiveRecord::Base
   validates :username, presence: true
   validates :auth_token, presence: true
 
-  after_create :queue_import
-
   def github_client
     @client ||= Github.new oauth_token: auth_token
   end
@@ -36,7 +34,7 @@ class User < ActiveRecord::Base
 
       events.each do |event|
         e = Event.from_github(event, self, import)
-        next if Event::EXCLUDED_TYPES.include? e.type
+        next unless e.present?
         return unless e.valid?
         e.save!
       end
@@ -44,11 +42,5 @@ class User < ActiveRecord::Base
 
   ensure
     Rails.logger.info "Finished import for #{username}."
-  end
-
-  private
-
-  def queue_import
-    Resque.enqueue(GitHubImportJob, username)
   end
 end

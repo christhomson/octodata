@@ -1,8 +1,7 @@
 class Event < ActiveRecord::Base
   EXCLUDED_TYPES = %w{
     DownloadEvent ForkApplyEvent GistEvent
-    GollumEvent MemberEvent ReleaseEvent
-    StatusEvent TeamAddEvent
+    GollumEvent StatusEvent TeamAddEvent
   }
 
   belongs_to :user
@@ -19,20 +18,22 @@ class Event < ActiveRecord::Base
   scope :recent, -> { reorder('occurred_at desc') }
 
   def self.from_github(github_event, user, import)
-    user.events.build(type: github_event.type).tap do |event|
-      owner, repo_name = github_event.repo.name.split('/')
-      event.repository = Repository.find_or_initialize_by(remote_id: github_event.repo.id).tap do |repo|
-        repo.owner = owner
-        repo.name = repo_name
-      end
+    unless EXCLUDED_TYPES.include? github_event.type
+      user.events.build(type: github_event.type).tap do |event|
+        owner, repo_name = github_event.repo.name.split('/')
+        event.repository = Repository.find_or_initialize_by(remote_id: github_event.repo.id).tap do |repo|
+          repo.owner = owner
+          repo.name = repo_name
+        end
 
-      event.github_event = github_event
-      event.assign_attributes({
-        import: import,
-        remote_id: github_event.id,
-        raw_data: YAML::dump(github_event),
-        occurred_at: github_event.created_at
-      })
+        event.github_event = github_event
+        event.assign_attributes({
+          import: import,
+          remote_id: github_event.id,
+          raw_data: YAML::dump(github_event),
+          occurred_at: github_event.created_at
+        })
+      end
     end
   end
 

@@ -139,3 +139,25 @@ follow:
   occurred_at: <%= Time.now %>
   raw_data: todo
   import: joe_import
+
+release:
+  type: ReleaseEvent
+  user: joe
+  remote_id: 134534
+  repository: rails
+  occurred_at: <%= Time.now %>
+  raw_data: todo
+  import: joe_import
+  action: published
+  release: rails
+
+member:
+  type: MemberEvent
+  user: joe
+  remote_id: 234234
+  repository: rails
+  occurred_at: <%= 5.minutes.ago %>
+  raw_data: todo
+  import: joe_import
+  action: added
+  target_user: octocat

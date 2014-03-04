@@ -22,6 +22,8 @@ class Issue < ActiveRecord::Base
       repository_id: self.repository.id
     })
 
+    issue[:assignee] = issue[:assignee][:login] if issue[:assignee]
+
     attrs_to_keep = %w{
       url remote_id number title creator state assignee milestone
       comments remote_created_at closed_at pull_request body repository_id 
