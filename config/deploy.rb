@@ -34,7 +34,7 @@ namespace :vlad do
   end
 
   remote_task :symlink_config, roles: :app do
-    files = %w{database.yml settings.yml}
+    files = %w{database.yml newrelic.yml settings.yml}
 
     files.each do |file|
       run "touch #{shared_path}/#{file}; ln -s #{shared_path}/#{file} #{release_path}/config/#{file}"
