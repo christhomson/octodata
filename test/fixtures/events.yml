@@ -161,3 +161,14 @@ member:
   import: joe_import
   action: added
   target_user: octocat
+
+pull_request:
+  type: PullRequestEvent
+  user: joe
+  remote_id: 234234
+  repository: rails
+  occurred_at: <%= 5.minutes.ago %>
+  raw_data: todo
+  import: joe_import
+  action: opened
+  pull_request: rails
