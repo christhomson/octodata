@@ -2,6 +2,6 @@
 
 <ul>
   <% @events.each do |event| %>
-    <li><%= time_ago_in_words(event.occurred_at) %> ago, <%= render event.class.to_s.underscore, event: event %></li>
+    <li><%= time_ago_in_words(event.occurred_at) %> ago, <%= render_event event %></li>
   <% end %>
 </ul>
