@@ -36,8 +36,4 @@ class DeploymentStatusEventTest < ActiveSupport::TestCase
     @event.state = 'unknown'
     refute @event.valid?, "DeploymentStatusEvent should not be valid with state=unknown, but it is."
   end
-
-  test "should have an action description" do
-    assert @event.action_description.present?, "DeploymentStatusEvent should have an action description."
-  end
 end

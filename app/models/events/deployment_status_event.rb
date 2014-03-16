@@ -8,8 +8,4 @@ class DeploymentStatusEvent < Event
       self[attr] = github_event.payload[attr]
     end
   end
-
-  def action_description
-    "changed the status of the #{short_sha(sha)} deployment in #{repository.display_name} to #{state}."
-  end
 end

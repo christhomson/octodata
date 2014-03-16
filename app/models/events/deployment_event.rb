@@ -7,8 +7,4 @@ class DeploymentEvent < Event
       self[attr] = github_event.payload[attr]
     end
   end
-
-  def action_description
-    "created a deployment for #{short_sha(sha)} on #{repository.display_name}"
-  end
 end

@@ -36,8 +36,4 @@ class DeleteEventTest < ActiveSupport::TestCase
 
     refute @event.valid?, "DeleteEvent should require a ref, but it didn't."
   end
-
-  test "should have an action description" do
-    assert @event.action_description.present?, "CreateEvent should have an action description."
-  end
 end

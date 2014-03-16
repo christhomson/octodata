@@ -10,8 +10,4 @@ class IssuesEvent < Event
     self.issue = Issue.find_or_initialize_by(repository: repository, number: github_event.payload.issue.number)
     self.issue.assign_filtered_attributes(github_event)
   end
-
-  def action_description
-    "#{action} issue ##{issue.number} on #{repository.display_name}"
-  end
 end

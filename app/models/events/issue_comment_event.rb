@@ -14,8 +14,4 @@ class IssueCommentEvent < Event
 
     self.build_comment.assign_filtered_attributes(github_event)
   end
-
-  def action_description
-    "commented on issue ##{issue.number} (#{issue.title}) on #{repository.display_name}"
-  end
 end

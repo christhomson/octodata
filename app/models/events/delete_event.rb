@@ -8,8 +8,4 @@ class DeleteEvent < Event
       self[attr] = github_event.payload[attr]
     end
   end
-
-  def action_description
-    "deleted the #{ref_type} #{ref} from #{repository.display_name}"
-  end
 end

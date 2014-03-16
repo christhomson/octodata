@@ -4,8 +4,4 @@ class FollowEvent < Event
   def github_event=(github_event)
     target_user = github_event.payload.target.login
   end
-
-  def action_description
-    "followed #{target_user}"
-  end
 end

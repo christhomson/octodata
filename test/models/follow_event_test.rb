@@ -14,8 +14,4 @@ class FollowEventTest < ActiveSupport::TestCase
 
     refute @event.valid?, "FollowEvent should require a target user, but it didn't."
   end
-
-  test "should have an action description" do
-    assert @event.action_description.present?, "FollowEvent should have an action description."
-  end
 end

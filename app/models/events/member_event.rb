@@ -9,8 +9,4 @@ class MemberEvent < Event
     self.action = github_event.payload.action
     self.target_user = github_event.payload.member.login
   end
-
-  def action_description
-    "#{action} #{target_user} to #{repository.display_name}"
-  end
 end

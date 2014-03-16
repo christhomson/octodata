@@ -1,0 +1,5 @@
+<% if event.ref_type == 'repository' %>
+  <%= event.user.username %> created the <%= event.repository.display_name %> repository.
+<% else %>
+  <%= event.user.username %> created the <%= event.ref %> <%= event.ref_type %> on <%= event.repository.display_name %>.
+<% end %>

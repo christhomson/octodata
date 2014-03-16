@@ -9,8 +9,4 @@ class ReleaseEvent < Event
     build_release.assign_filtered_attributes(github_event)
     release.repository = repository
   end
-
-  def action_description
-    "#{action} the release #{release.name} on #{repository.display_name}"
-  end
 end

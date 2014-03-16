@@ -9,13 +9,4 @@ class CreateEvent < Event
       self[attr] = github_event.payload[attr]
     end
   end
-
-  def action_description
-    case ref_type
-    when 'repository'
-      "created the #{ref_type} #{repository.display_name}"
-    else
-      "created the #{ref_type} #{ref} on #{repository.display_name}"
-    end
-  end
 end

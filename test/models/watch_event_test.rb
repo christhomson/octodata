@@ -20,8 +20,4 @@ class WatchEventTest < ActiveSupport::TestCase
 
     refute @event.valid?, "WatchEvent should require an action, but it didn't."
   end
-
-  test "should have an action description" do
-    assert @event.action_description.present?, "WatchEvent should have an action description."
-  end
 end

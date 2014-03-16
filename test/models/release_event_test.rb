@@ -26,8 +26,4 @@ class ReleaseEventTest < ActiveSupport::TestCase
 
     refute @event.valid?, "ReleaseEvent should require a release, but it didn't."
   end
-
-  test "should have an action description" do
-    assert @event.action_description.present?, "ReleaseEvent should have an action description."
-  end
 end

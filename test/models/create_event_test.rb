@@ -49,8 +49,4 @@ class CreateEventTest < ActiveSupport::TestCase
 
     refute @event.valid?, "CreateEvent should require a master_branch, but it didn't."
   end
-
-  test "should have an action description" do
-    assert @event.action_description.present?, "CreateEvent should have an action description."
-  end
 end

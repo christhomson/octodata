@@ -20,8 +20,4 @@ class DeploymentEventTest < ActiveSupport::TestCase
 
     refute @event.valid?, "DeploymentEvent should require a sha, but it didn't."
   end
-
-  test "should have an action description" do
-    assert @event.action_description.present?, "DeploymentEvent should have an action description."
-  end
 end

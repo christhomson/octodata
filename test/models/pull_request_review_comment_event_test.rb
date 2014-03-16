@@ -14,8 +14,4 @@ class PullRequestReviewCommentEventTest < ActiveSupport::TestCase
 
     refute @event.valid?, "PullRequestReviewCommentEvent should require a comment, but it didn't."
   end
-
-  test "should have an action description" do
-    assert @event.action_description.present?, "PullRequestReviewCommentEvent should have an action description, but it didn't."
-  end
 end
