@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class PullRequestEventTest < ActiveSupport::TestCase
+class ForkEventTest < ActiveSupport::TestCase
   setup do
-    @event = events(:pull_request)
+    @event = events(:fork)
   end
 
   test "should be valid" do
@@ -12,18 +12,6 @@ class PullRequestEventTest < ActiveSupport::TestCase
   test "should require a repository" do
     @event.repository = nil
 
-    refute @event.valid?, "PullRequestEvent should require a repository, but it didn't."
-  end
-
-  test "should require a pull request" do
-    @event.pull_request = nil
-
-    refute @event.valid?, "PullRequestEvent should require a pull request, but it didn't."
-  end
-
-  test "should require an action" do
-    @event.action = nil
-
-    refute @event.valid?, "PullRequestEvent should require an action, but it didn't."
+    refute @event.valid?, "ForkEvent should require a repository, but it didn't."
   end
 end
