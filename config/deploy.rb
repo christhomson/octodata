@@ -53,4 +53,8 @@ namespace :vlad do
   task :start => [
     "vlad:thin:restart",
   ]
+
+  task :copy_production do
+    exec "scp #{domain}:#{deploy_to}/shared/production.sqlite3 db/development.sqlite3"
+  end
 end
