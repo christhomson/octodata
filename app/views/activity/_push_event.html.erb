@@ -1,1 +1,1 @@
-<%= event.user.username %> pushed <%= pluralize(event.size, 'commit') %> to <%= event.repository.display_name %>.
+<%= event.user.username %> pushed <%= pluralize(event.size, 'commit') %> to <%= link_to_repository(event.repository) %>.

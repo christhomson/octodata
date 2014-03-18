@@ -1,1 +1,1 @@
-<%= event.user.username %> <%= event.action %> issue #<%= event.issue.number %> on <%= event.repository.display_name %>.
+<%= event.user.username %> <%= event.action %> issue #<%= event.issue.number %> on <%= link_to_repository(event.repository) %>.

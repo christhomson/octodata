@@ -1,1 +1,1 @@
-<%= event.user.username %> <%= event.action %> <%= event.target_user %> to <%= event.repository.display_name %>.
+<%= event.user.username %> <%= event.action %> <%= event.target_user %> to <%= link_to_repository(event.repository) %>.

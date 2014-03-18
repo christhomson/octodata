@@ -1,1 +1,1 @@
-<%= event.user.username %> commented on issue #<%= event.issue.number %> (<%= event.issue.title %>) on <%= event.repository.display_name %>.
+<%= event.user.username %> commented on issue #<%= event.issue.number %> (<%= event.issue.title %>) on <%= link_to_repository(event.repository) %>.

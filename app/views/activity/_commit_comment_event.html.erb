@@ -1,1 +1,1 @@
-<%= event.user.username %> commented on a commit (<%= short_sha(event.comment.commit_id) %>) in <%= event.repository.display_name %>.
+<%= event.user.username %> commented on a commit (<%= short_sha(event.comment.commit_id) %>) in <%= link_to_repository(event.repository) %>.
