@@ -35,9 +35,3 @@ group :production do
   gem 'thin', '~> 1.6.1'
   gem 'newrelic_rpm'
 end
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
