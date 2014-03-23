@@ -20,4 +20,9 @@ class PushEvent < Event
       commits.build(commit)
     end
   end
+
+  def branch
+    matches = ref.match(/refs\/heads\/(.+)/)
+    matches[1] if matches && matches.size > 1
+  end
 end
