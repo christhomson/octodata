@@ -1,4 +1,9 @@
 class Issue < ActiveRecord::Base
+  GITHUB_ATTRIBUTES = %w{
+    url remote_id number title creator state assignee milestone
+    comments remote_created_at closed_at pull_request body repository_id
+  }.freeze
+
   belongs_to :repository
 
   validates :url, presence: true
@@ -24,11 +29,7 @@ class Issue < ActiveRecord::Base
 
     issue[:assignee] = issue[:assignee][:login] if issue[:assignee]
 
-    attrs_to_keep = %w{
-      url remote_id number title creator state assignee milestone
-      comments remote_created_at closed_at pull_request body repository_id 
-    }
-    issue.slice! *attrs_to_keep
+    issue.slice! *GITHUB_ATTRIBUTES
     assign_attributes(issue)
 
     self

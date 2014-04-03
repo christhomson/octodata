@@ -1,4 +1,9 @@
 class Release < ActiveRecord::Base
+  GITHUB_ATTRIBUTES = %w{
+    remote_id url tag_name target_commitish name body draft prerelease
+    remote_created_at published_at author
+  }.freeze
+
   belongs_to :repository
 
   validates :url, presence: true
@@ -17,12 +22,7 @@ class Release < ActiveRecord::Base
     release[:author] = release[:author][:login]
     release[:url] = release[:html_url]
 
-    attrs_to_keep = %w{
-      remote_id url tag_name target_commitish name body draft prerelease
-      remote_created_at published_at author
-    }
-
-    release.slice! *attrs_to_keep
+    release.slice! *GITHUB_ATTRIBUTES
     assign_attributes(release)
 
     self

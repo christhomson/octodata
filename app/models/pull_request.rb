@@ -1,4 +1,11 @@
 class PullRequest < ActiveRecord::Base
+  GITHUB_ATTRIBUTES = %w{
+    url number state title body remote_created_at closed_at merged_at head_sha head_ref
+    base_sha base_ref merge_commit_sha merged mergeable merged_by comments commits
+    additions deletions changed_files repository_id milestone assignee mergeable_state
+    remote_id
+  }.freeze
+
   belongs_to :repository
 
   validates :url, presence: true
@@ -32,14 +39,7 @@ class PullRequest < ActiveRecord::Base
 
     pull_request[:merged_by] = pull_request[:merged_by][:login] if pull_request[:merged_by]
 
-    attrs_to_keep = %w{
-      url number state title body remote_created_at closed_at merged_at head_sha head_ref
-      base_sha base_ref merge_commit_sha merged mergeable merged_by comments commits
-      additions deletions changed_files repository_id milestone assignee mergeable_state
-      remote_id
-    }
-
-    pull_request.slice! *attrs_to_keep
+    pull_request.slice! *GITHUB_ATTRIBUTES
     assign_attributes(pull_request)
 
     self
