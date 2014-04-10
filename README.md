@@ -15,3 +15,6 @@ GitHub](https://github.com/settings/applications/new) (callback URL:
 `http://localhost:3000/auth/github/callback`).
 7. Edit `config/settings.yml` to add your GitHub API key and secret.
 8. `bundle exec rails server`
+
+## Tests
+You can run the tests with `bundle exec rake test`.
