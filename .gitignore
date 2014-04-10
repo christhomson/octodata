@@ -21,3 +21,4 @@ config/database.yml
 config/newrelic.yml
 *.log
 dump.rdb
+public/assets/
