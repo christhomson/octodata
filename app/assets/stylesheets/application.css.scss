@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
  */
+
+ul#activity {
+  list-style-type: none;
+
+  li {
+    margin: 5px 0;
+  }
+}

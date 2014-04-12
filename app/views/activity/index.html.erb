@@ -1,6 +1,6 @@
 <h1>Your recent activity</h1>
 
-<ul>
+<ul id="activity">
   <% @events.each do |event| %>
     <li><%= time_ago_in_words(event.occurred_at) %> ago, <%= render_event event %></li>
   <% end %>
