@@ -3,6 +3,7 @@ octodata
 [![Build Status on Travis CI](https://travis-ci.org/christhomson/octodata.png?branch=master)](https://travis-ci.org/christhomson/octodata)
 [![Dependency Status on Gemnasium](https://gemnasium.com/christhomson/octodata.png)](https://gemnasium.com/christhomson/octodata)
 [![Code Climate](https://codeclimate.com/github/christhomson/octodata.png)](https://codeclimate.com/github/christhomson/octodata)
+[![Coverage Status](https://coveralls.io/repos/christhomson/octodata/badge.png?branch=master)](https://coveralls.io/r/christhomson/octodata?branch=master)
 
 ## Getting started
 1. `git clone git@github.com:christhomson/octodata.git`
