@@ -15,8 +15,8 @@ gem 'omniauth', '~> 1.2.1'
 gem 'omniauth-github', '~> 1.1.1'
 
 gem 'github_api', '~> 0.11.3'
-
 gem 'whenever', '~> 0.9.1'
+gem 'rake', '~> 10.1.1'
 
 group :development do
   gem 'vlad', '~> 2.6.3'
