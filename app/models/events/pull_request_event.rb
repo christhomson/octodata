@@ -1,5 +1,4 @@
 class PullRequestEvent < Event
-  belongs_to :pull_request
   validates :action, presence: true, inclusion: { in: %w{opened closed synchronize reopened}}
   validates :pull_request, presence: true
   validates :repository, presence: true

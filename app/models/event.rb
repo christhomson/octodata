@@ -8,6 +8,12 @@ class Event < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :import
+
+  has_many :commits
+  belongs_to :comment
+  belongs_to :issue
+  belongs_to :pull_request
+  belongs_to :release
   belongs_to :repository
 
   validates :type,          presence: true

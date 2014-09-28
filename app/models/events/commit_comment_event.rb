@@ -1,5 +1,4 @@
 class CommitCommentEvent < Event
-   belongs_to :comment
    validates :comment, presence: true
 
   def github_event=(github_event)

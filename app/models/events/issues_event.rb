@@ -1,6 +1,4 @@
 class IssuesEvent < Event
-  belongs_to :issue
-
   validates :issue, presence: true
   validates :action, presence: true
   validates :repository, presence: true

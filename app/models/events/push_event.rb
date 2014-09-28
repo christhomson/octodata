@@ -1,6 +1,4 @@
 class PushEvent < Event
-  has_many :commits, as: :event, foreign_key: :event_id
-
   validates :head, presence: true
   validates :ref, presence: true
   validates :size, presence: true, numericality: { only_integer: true }

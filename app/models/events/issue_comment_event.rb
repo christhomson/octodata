@@ -1,7 +1,4 @@
 class IssueCommentEvent < Event
-  belongs_to :comment
-  belongs_to :issue
-
   validates :repository, presence: true
   validates :action, presence: true
   validates :comment, presence: true

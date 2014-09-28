@@ -1,6 +1,4 @@
 class MemberEvent < Event
-  belongs_to :repository
-
   validates :repository, presence: true
   validates :action, presence: true
   validates :target_user, presence: true

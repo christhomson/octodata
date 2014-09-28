@@ -1,5 +1,4 @@
 class ReleaseEvent < Event
-  belongs_to :release
   validates :repository, presence: true
   validates :action, presence: true
   validates :release, presence: true
