@@ -5,6 +5,8 @@ octodata
 [![Code Climate](https://codeclimate.com/github/christhomson/octodata.png)](https://codeclimate.com/github/christhomson/octodata)
 [![Coverage Status](https://coveralls.io/repos/christhomson/octodata/badge.png?branch=master)](https://coveralls.io/r/christhomson/octodata?branch=master)
 
+Octodata was created out of a desire to analyze my GitHub activity/habits better. Currently, Octodata only serves as an endpoint that accepts events via GitHub webhooks and stores them in a database. It has a disturbingly ugly view of all events that GitHub has ever sent it. Eventually, I want to turn this into a web app that actually displays some interesting statistics and trends.
+
 ## Getting started
 1. `git clone git@github.com:christhomson/octodata.git`
 2. `cd octodata`
