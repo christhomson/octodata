@@ -13,34 +13,34 @@
 
 ActiveRecord::Schema.define(version: 20140304000137) do
 
-  create_table "comments", force: true do |t|
-    t.string   "html_url"
-    t.string   "url"
+  create_table "comments", force: :cascade do |t|
+    t.string   "html_url",   limit: 255
+    t.string   "url",        limit: 255
     t.integer  "remote_id"
     t.text     "body"
-    t.string   "path"
+    t.string   "path",       limit: 255
     t.integer  "position"
     t.integer  "line"
-    t.string   "commit_id"
+    t.string   "commit_id",  limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "commits", force: true do |t|
-    t.string   "sha"
-    t.string   "message"
-    t.string   "author_name"
-    t.string   "author_email"
-    t.string   "url"
+  create_table "commits", force: :cascade do |t|
+    t.string   "sha",          limit: 255
+    t.string   "message",      limit: 255
+    t.string   "author_name",  limit: 255
+    t.string   "author_email", limit: 255
+    t.string   "url",          limit: 255
     t.boolean  "distinct"
     t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "event_type"
+    t.string   "event_type",   limit: 255
   end
 
-  create_table "events", force: true do |t|
-    t.string   "type"
+  create_table "events", force: :cascade do |t|
+    t.string   "type",            limit: 255
     t.integer  "repository_id"
     t.integer  "remote_id"
     t.datetime "created_at"
@@ -49,39 +49,39 @@ ActiveRecord::Schema.define(version: 20140304000137) do
     t.integer  "user_id"
     t.text     "raw_data"
     t.datetime "occurred_at"
-    t.string   "head"
-    t.string   "ref"
+    t.string   "head",            limit: 255
+    t.string   "ref",             limit: 255
     t.integer  "size"
     t.integer  "comment_id"
-    t.string   "ref_type"
-    t.string   "master_branch"
-    t.string   "description"
+    t.string   "ref_type",        limit: 255
+    t.string   "master_branch",   limit: 255
+    t.string   "description",     limit: 255
     t.text     "payload"
-    t.string   "sha"
-    t.string   "state"
-    t.string   "target_url"
-    t.string   "action"
+    t.string   "sha",             limit: 255
+    t.string   "state",           limit: 255
+    t.string   "target_url",      limit: 255
+    t.string   "action",          limit: 255
     t.integer  "pull_request_id"
     t.integer  "issue_id"
-    t.string   "target_user"
+    t.string   "target_user",     limit: 255
     t.integer  "release_id"
   end
 
-  create_table "imports", force: true do |t|
+  create_table "imports", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "issues", force: true do |t|
-    t.string   "url"
+  create_table "issues", force: :cascade do |t|
+    t.string   "url",               limit: 255
     t.integer  "remote_id"
     t.integer  "number"
-    t.string   "title"
-    t.string   "creator"
-    t.string   "state"
-    t.string   "assignee"
-    t.string   "milestone"
+    t.string   "title",             limit: 255
+    t.string   "creator",           limit: 255
+    t.string   "state",             limit: 255
+    t.string   "assignee",          limit: 255
+    t.string   "milestone",         limit: 255
     t.integer  "comments"
     t.datetime "remote_created_at"
     t.datetime "closed_at"
@@ -92,23 +92,23 @@ ActiveRecord::Schema.define(version: 20140304000137) do
     t.integer  "repository_id"
   end
 
-  create_table "pull_requests", force: true do |t|
-    t.string   "url"
+  create_table "pull_requests", force: :cascade do |t|
+    t.string   "url",               limit: 255
     t.integer  "number"
-    t.string   "state"
-    t.string   "title"
+    t.string   "state",             limit: 255
+    t.string   "title",             limit: 255
     t.text     "body"
     t.datetime "remote_created_at"
     t.datetime "closed_at"
     t.datetime "merged_at"
-    t.string   "head_sha"
-    t.string   "head_ref"
-    t.string   "base_sha"
-    t.string   "base_ref"
-    t.string   "merge_commit_sha"
+    t.string   "head_sha",          limit: 255
+    t.string   "head_ref",          limit: 255
+    t.string   "base_sha",          limit: 255
+    t.string   "base_ref",          limit: 255
+    t.string   "merge_commit_sha",  limit: 255
     t.boolean  "merged"
     t.boolean  "mergeable"
-    t.string   "merged_by"
+    t.string   "merged_by",         limit: 255
     t.integer  "comments"
     t.integer  "commits"
     t.integer  "additions"
@@ -117,32 +117,32 @@ ActiveRecord::Schema.define(version: 20140304000137) do
     t.integer  "repository_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "milestone"
-    t.string   "assignee"
-    t.string   "mergeable_state"
+    t.string   "milestone",         limit: 255
+    t.string   "assignee",          limit: 255
+    t.string   "mergeable_state",   limit: 255
     t.integer  "remote_id"
   end
 
-  create_table "releases", force: true do |t|
-    t.string   "url"
+  create_table "releases", force: :cascade do |t|
+    t.string   "url",               limit: 255
     t.integer  "remote_id"
-    t.string   "tag_name"
-    t.string   "target_commitish"
-    t.string   "name"
+    t.string   "tag_name",          limit: 255
+    t.string   "target_commitish",  limit: 255
+    t.string   "name",              limit: 255
     t.text     "body"
     t.boolean  "draft"
     t.boolean  "prerelease"
     t.datetime "remote_created_at"
-    t.string   "author"
+    t.string   "author",            limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "published_at"
     t.integer  "repository_id"
   end
 
-  create_table "repositories", force: true do |t|
-    t.string   "name"
-    t.string   "owner"
+  create_table "repositories", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "owner",      limit: 255
     t.boolean  "private"
     t.boolean  "fork"
     t.integer  "remote_id"
@@ -150,9 +150,9 @@ ActiveRecord::Schema.define(version: 20140304000137) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "username"
-    t.string   "auth_token"
+  create_table "users", force: :cascade do |t|
+    t.string   "username",   limit: 255
+    t.string   "auth_token", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
